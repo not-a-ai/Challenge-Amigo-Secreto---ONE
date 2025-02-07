@@ -1,5 +1,7 @@
-atualizarLista()
-
+let amigos = localStorage.getItem("amigos");
+if (amigos && amigos !== "") {
+    atualizarLista();
+}
 function adicionarAmigo() {
   let novoAmigo = document.getElementById("amigo").value.trim();
 
