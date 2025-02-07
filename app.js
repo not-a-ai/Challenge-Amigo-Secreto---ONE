@@ -1,14 +1,12 @@
-
+atualizarLista()
 
 function adicionarAmigo() {
   let novoAmigo = document.getElementById("amigo").value.trim();
 
   if (novoAmigo !== "") {
     let amigosSalvos = JSON.parse(localStorage.getItem("amigos")) || [];
-    console.log(typeof(amigosSalvos))
 
     amigosSalvos.push(novoAmigo);
-    console.log(amigosSalvos)
 
     localStorage.setItem("amigos", JSON.stringify(amigosSalvos));
     atualizarLista();
@@ -20,6 +18,12 @@ function adicionarAmigo() {
 }
 
 function atualizarLista() {
-
-
+  let amigos = JSON.parse(localStorage.getItem("amigos"));
+  let lista = document.getElementById("listaAmigos");
+  lista.innerHTML = "";
+  for(let amigo of amigos ) {
+    let newli = document.createElement("li");
+    newli.innerHTML = amigo;
+    lista.appendChild(newli);
+  }
 }
